@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>анимируем по клику</title>
+    <style media="screen">
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+        transition: all 400ms ease;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+      }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" onclick="reset()">
+    </div>
+    <button onclick="paintInBlack()">покрасить в черный</button>
+    <button onclick="makeCircle()">сделать круглым</button>
+    <button onclick="moveRight()">подвинуть направо</button>
+    <button onclick="makeCrazy()">делать мигающим</button>
+    <input id="text" type="text" placeholder="напишите название цвета на английском или в виде HEX-кода" size="70">
+    <button onclick="addText()">добавить надпись</button>
+
+    <script>
+    let box = document.querySelector(".box")
+    function paintInBlack() {
+      box.style.backgroundColor = "black"
+    }
+
+    function reset() {
+      window.location.reload()
+    }
+
+    function makeCircle() {
+      box.style.borderRadius = "50%"
+    }
+
+    function moveRight() {
+      box.style.transform = "translateX(50%)"
+    }
+
+    function makeCrazy() {
+      box.style.animation = "1s blink ease infinite"
+    }
+
+    function addText() {
+      let text = document.getElementById("text").value
+      box.innerText = text
+      text = ""
+    }
+
+
+    </script>
+
+  </body>
+</html>
